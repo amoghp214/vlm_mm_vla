@@ -1,0 +1,120 @@
+# Main configuration file for pipelined perturbed dataset generation
+# This file contains all parameters needed for record.py, playback.py, and perturbation generation
+
+# =============================================================================
+# Base Task Configuration
+# =============================================================================
+model: openvla
+task_suite_name: libero_10
+device: cuda:0
+cache_dir: /home/hice1/vkulkarni46/scratch/huggingface  # Replace with your cache directory
+
+# Original BDDL file (will be used as base for perturbations)
+base_bddl_file: libero/libero/bddl_files/libero_10/KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it.bddl
+base_prompt: put the black bowl in the bottom drawer of the cabinet and close it
+
+# Recording parameters
+action_scale: 1.0
+num_demos: 2  # Number of demonstrations to record per perturbation
+noise_std: 0.001  # Gaussian noise std deviation for action deltas
+
+# =============================================================================
+# Perturbation Configuration
+# =============================================================================
+perturbations:
+  # Number of perturbations to generate
+  num_perturbations: 6
+  
+  # Perturbation types to generate
+  # Options: bddl_spatial, language
+  types:
+    - bddl_spatial
+    # - language
+  
+  # For BDDL spatial perturbations
+  bddl_spatial:
+    # Size of init region (m) for object placement. 0 = exact point; >0 = box.
+    # Applies to both unperturbed and perturbed runs.
+    init_object_range_m: 0
+
+    # List of perturbation combinations to apply
+    # Each entry is a dict with perturbation type and target objects
+    perturbation_specs:
+      - type: move
+        objects: ["akita_black_bowl_1", "wine_bottle_1"]
+        # Max distance (m) from unperturbed center that move can shift the object (x/z, diagonal ok)
+        max_move_m: 0.05
+      - type: reorient
+        objects: ["akita_black_bowl_1", "wine_bottle_1"]
+      - type: color
+        objects: ["akita_black_bowl_1"]
+      - type: distractor
+        count: 1
+      - type: replace
+        objects: ["akita_black_bowl_1"]
+  
+  # For language perturbations (if enabled)
+  language:
+    # Will use generate_perturbations from explainability/perturbations/language/
+    # All standard perturbations will be generated
+
+# =============================================================================
+# SLURM Job Configuration
+# =============================================================================
+slurm:
+  # Maximum number of simultaneous jobs
+  max_concurrent_jobs: 4
+  
+  # Job parameters
+  job_params:
+    partition: "coc-gpu"  # Optional - can omit for auto-select
+    account: "coc"      # Optional - can omit for default account
+    time: "02:00:00"
+    nodes: 1
+    ntasks_per_node: 1
+    cpus_per_task: 4
+    mem: 16G
+    gpus: 1
+    gpu_type: "V100"
+    constraint: null  # Optional: "V100-32GB", "A100-80GB", etc.
+    blacklisted_nodes: ["atl1-1-01-002-8-0"]  # Optional: List of node names to exclude from job allocation
+                           # Example: ["node001", "node002"] or ["node[001-005]"]
+                           # Uses SLURM --exclude flag to prevent jobs from running on problematic nodes
+  
+  # Environment setup
+  conda_env: /home/hice1/vkulkarni46/scratch/envs/xAI # Conda environment name
+  module_load: ["anaconda3/2023.03", "cuda/12.6.1"]  # List of modules to load (e.g., ["cuda/11.8"])
+  
+  # Job script template variables
+  job_name_prefix: "vla_record"
+  
+  # Polling interval for checking job status (seconds)
+  poll_interval: 30
+
+# =============================================================================
+# Directory Structure
+# =============================================================================
+# Base directory for runs (will be created in scratch folder)
+# If not set, will use $SCRATCH/vla-explainability-runs
+run_base_dir: null
+
+# =============================================================================
+# Evaluation Configuration
+# =============================================================================
+evaluation:
+  # Enable evaluation after all jobs complete
+  enabled: true
+  
+  # Metric weights for VLA metrics
+  metric_weights:
+    w_result: 1.0
+    w_time: 1.0
+    w_trajectory: 1.0
+  
+  # Trajectory weight matrix (8D: xyz, quat, gripper)
+  trajectory_weights: [1.0, 1.0, 1.0, 0.2, 0.2, 0.2, 0.2, 0.5]
+  
+  # Output formats
+  output_formats:
+    - json
+    - hdf5
