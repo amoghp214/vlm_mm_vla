@@ -1,0 +1,29 @@
+# General Configs
+cache_dir: /home/hice1/apalasamudram6/scratch/huggingface  # Replace with your cache directory
+seed: 1
+
+# VLMMM Config
+vlmmm:
+  model_name: gemma3
+  vlm_mm_context_dir: vlm_mm/mm_context
+  vlm_mm_prompts_dir: vlm_mm/mm_prompts
+  original_prompt: put the black bowl in the bottom drawer of the cabinet and close it
+  curr_image_path: "vlm_mm/mm_context/curr_image.png"
+  context_video_path: "vlm_mm/mm_context/curr_context.mp4"
+  device: cuda:0
+
+# VLM MM Server Config
+vlm_server:
+  server: http://localhost:8000 
+
+# VLA Config
+vla:
+  model: openvla
+  task_suite_name: libero_10
+  bddl_file: /home/hice1/apalasamudram6/scratch/vlm_mm_vla/libero/libero/bddl_files/libero_10/KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it.bddl
+  prompt: put the black bowl in the bottom drawer of the cabinet and close it
+  record_path: /home/hice1/apalasamudram6/scratch/demos/vlmmm_demo.mp4
+  out_file: /home/hice1/apalasamudram6/scratch/demos/vlmmm_demo.hdf5
+  action_scale: 1.0
+  noise_std: 0.001
+  device: cuda:0

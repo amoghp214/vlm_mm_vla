@@ -1,0 +1,70 @@
+{
+  "task_objective": "put the black bowl in the bottom drawer of the cabinet and close it",
+  "finished": false,
+  "subtasks": [
+    {
+      "task_objective": "Move the robot arm towards the black bowl.",
+      "finished": false,
+      "subtasks": [
+        {
+          "task_objective": "task 1111",
+          "finished": false
+        },
+        {
+          "task_objective": "task 1112",
+          "finished": false
+        },
+        {
+          "task_objective": "task 1113",
+          "finished": false
+        },
+        {
+          "task_objective": "task 1114",
+          "finished": false
+        },
+        {
+          "task_objective": "task 1115",
+          "finished": false
+        },
+        {
+          "task_objective": "task 1116",
+          "finished": false
+        }
+      ]
+    },
+    {
+      "task_objective": "Grasp the black bowl with the robot's gripper.",
+      "finished": false
+    },
+    {
+      "task_objective": "Move the robot arm towards the bottom drawer of the cabinet.",
+      "finished": false
+    },
+    {
+      "task_objective": "Position the robot arm above the opening of the drawer.",
+      "finished": false,
+      "subtasks": [
+        {
+          "task_objective": "task a",
+          "finished": false
+        },
+        {
+          "task_objective": "task b",
+          "finished": false
+        },
+        {
+          "task_objective": "task c",
+          "finished": false
+        }
+      ]
+    },
+    {
+      "task_objective": "Lower the black bowl into the drawer.",
+      "finished": false
+    },
+    {
+      "task_objective": "Close the drawer using the robot's manipulator.",
+      "finished": false
+    }
+  ]
+}

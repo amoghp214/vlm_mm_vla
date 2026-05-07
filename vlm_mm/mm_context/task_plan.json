@@ -1,0 +1,23 @@
+{
+  "task_objective": "put the black bowl in the bottom drawer of the cabinet and close it",
+  "subtasks": [
+    {
+      "task_objective": "Move the robot's arm towards the black bowl."
+    },
+    {
+      "task_objective": "Grasp the black bowl with the robot's gripper."
+    },
+    {
+      "task_objective": "Move the robot's arm towards the bottom drawer of the cabinet."
+    },
+    {
+      "task_objective": "Position the robot's arm over the opening of the drawer."
+    },
+    {
+      "task_objective": "Release the black bowl into the drawer."
+    },
+    {
+      "task_objective": "Close the drawer using the robot's gripper."
+    }
+  ]
+}

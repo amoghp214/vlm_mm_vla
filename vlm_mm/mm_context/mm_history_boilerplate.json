@@ -1,0 +1,100 @@
+{
+    "task_objective": "original task prompt",
+    "task_history": [
+        {
+            "mm_output_type": "revised_prompt",
+            "output": "<update_prompt>",
+            "step_range": ["<start_step when the output is applied on the robot>", "<end_step when the output is applied on the robot>"],
+            "robot_performance_results": "<an explanation of how the robot performed with these applied updates and how it can be improved.>"
+        },
+        {
+            "mm_output_type": "smaller_tasks",
+            "subtasks": [
+                {
+                    "task_objective": "<name/description of 1st subtask>",
+                    "task_history": [
+                        {
+                            "mm_output_type": "revised_prompt",
+                            "output": "<update_prompt>",
+                            "step_range": ["<start_step when the output is applied on the robot>", "<end_step when the output is applied on the robot>"],
+                            "robot_performance_results": "<an explanation of how the robot performed with these applied updates and how it can be improved.>"
+                        },
+                        {
+                            "mm_output_type": "override_action",
+                            "output": "<override_action - list of 7 elements>",
+                            "step_range": ["<start_step when the output is applied on the robot>", "<end_step when the output is applied on the robot>"],
+                            "robot_performance_results": "<an explanation of how the robot performed with these applied updates and how it can be improved.>"
+                        },
+                        {
+                            "mm_output_type": "revised_prompt",
+                            "output": "<a new/better update_prompt>",
+                            "step_range": ["<start_step when the output is applied on the robot>", "<end_step when the output is applied on the robot>"],
+                            "robot_performance_results": "<an explanation of how the robot performed with these applied updates and how it can be improved.>"
+                        }
+                    ]
+                },
+                {
+                    "task_objective": "<name/description of 2nd subtask>",
+                    "task_history": [
+                        {
+                            "mm_output_type": "revised_prompt",
+                            "output": "<update_prompt>",
+                            "step_range": ["<start_step when the output is applied on the robot>", "<end_step when the output is applied on the robot>"],
+                            "robot_performance_results": "<an explanation of how the robot performed with these applied updates and how it can be improved.>"
+                        }
+                    ]
+                },
+                {
+                    "task_objective": "<name/description of 3rd subtask>",
+                    "task_history": [
+                        {
+                            "mm_output_type": "revised_prompt",
+                            "output": "<update_prompt>",
+                            "step_range": ["<start_step when the output is applied on the robot>", "<end_step when the output is applied on the robot>"],
+                            "robot_performance_results": "<an explanation of how the robot performed with these applied updates and how it can be improved.>"
+                        },
+                        {
+                            "mm_output_type": "smaller_tasks",
+                            "subtasks": [
+                                {
+                                    "task_objective": "<name/description of 1st smaller subtask>",
+                                    "task_history": [
+                                        {
+                                            "mm_output_type": "revised_prompt",
+                                            "output": "<update_prompt>",
+                                            "step_range": ["<start_step when the output is applied on the robot>", "<end_step when the output is applied on the robot>"],
+                                            "robot_performance_results": "<an explanation of how the robot performed with these applied updates and how it can be improved.>"
+                                        },
+                                        {
+                                            "mm_output_type": "revised_prompt",
+                                            "output": "<update_prompt>",
+                                            "step_range": ["<start_step when the output is applied on the robot>", "<end_step when the output is applied on the robot>"],
+                                            "robot_performance_results": "<an explanation of how the robot performed with these applied updates and how it can be improved.>"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "task_objective": "<name/description of 2nd smaller subtask>",
+                                    "task_history": [
+                                        {
+                                            "mm_output_type": "progress",
+                                            "output": "<override_action to keep the robot still and the gripper in the same position - list of 7 elements>",
+                                            "step_range": ["<start_step when the output is applied on the robot>", "<end_step when the output is applied on the robot>"],
+                                            "robot_performance_results": "<an explanation of how the robot performed with these applied updates and how it can be improved.>"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "mm_output_type": "revised_prompt",
+                            "output": "<update_prompt>",
+                            "step_range": ["<start_step when the output is applied on the robot>", "<end_step when the output is applied on the robot>"],
+                            "robot_performance_results": "<an explanation of how the robot performed with these applied updates and how it can be improved.>"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

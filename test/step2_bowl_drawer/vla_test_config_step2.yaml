@@ -1,0 +1,14 @@
+action_scale: 1.0
+bddl_file: /home/hice1/apalasamudram6/scratch/vlm_mm_vla/test/step2_bowl_drawer/unperturbed.bddl
+episode_to_resume: /home/hice1/apalasamudram6/scratch/vlm_mm_vla/test/step1_bowl_drawer/unperturbed.hdf5
+# episode_to_resume: /home/hice1/apalasamudram6/scratch/vlm_mm_vla/test/step2_bowl_drawer/unperturbed_half_step2.hdf5
+cache_dir: /home/hice1/apalasamudram6/scratch/huggingface
+device: cuda:0
+model: openvla
+noise_std: 0.001
+num_demos: 1
+out_file: /home/hice1/apalasamudram6/scratch/vlm_mm_vla/test/step2_bowl_drawer/unperturbed.hdf5
+prompt: Grasp the black bowl.
+# prompt: close the drawer
+record_path: /home/hice1/apalasamudram6/scratch/vlm_mm_vla/test/step2_bowl_drawer/unperturbed.mp4
+task_suite_name: libero_10

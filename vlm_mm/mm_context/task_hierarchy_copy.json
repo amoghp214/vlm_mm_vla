@@ -1,0 +1,22 @@
+{
+    "task_objective": "original task prompt",
+    "subtasks": [
+        {
+            "task_objective": "<name/description of 1st subtask>"
+        },
+        {
+            "task_objective": "<name/description of 2nd subtask>"
+        },
+        {
+            "task_objective": "<name/description of 3rd subtask>",
+            "subtasks": [
+                {
+                    "task_objective": "<name/description of 1st smaller subtask>"
+                },
+                {
+                    "task_objective": "<name/description of 2nd smaller subtask>"
+                }
+            ]
+        }
+    ]
+}
