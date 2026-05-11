@@ -230,9 +230,9 @@ Error: Could not connect to http://localhost:8000
 If you use this code in your research, please cite:
 
 ```bibtex
-@software{vlmmm2024,
+@software{vlmmm2026,
   title={VLM Micromanager for Vision-Language Action Models},
-  year={2024}
+  year={2026}
 }
 ```
 
